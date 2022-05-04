@@ -30,4 +30,63 @@ public class Endereco implements Serializable {
             foreignKey = @ForeignKey(name = "FK_BAIRRO_ID_BAIRRO"))
     private Bairro bairro;
 
+    public Endereco() {
+    }
+
+    public Endereco(long id, String rua, int numero, String complemento, String cep, Bairro bairro) {
+        this.id = id;
+        this.rua = rua;
+        this.numero = numero;
+        this.complemento = complemento;
+        this.cep = cep;
+        this.bairro = bairro;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getRua() {
+        return rua;
+    }
+
+    public void setRua(String rua) {
+        this.rua = rua;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public String getComplemento() {
+        return complemento;
+    }
+
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+
+    public Bairro getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(Bairro bairro) {
+        this.bairro = bairro;
+    }
 }

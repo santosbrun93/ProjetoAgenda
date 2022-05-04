@@ -20,5 +20,27 @@ public class Bairro implements Serializable {
             foreignKey = @ForeignKey(name = "FK_CIDADE_ID_CIDADE"))
     private Cidade cidade;
 
+    public Bairro() {
+    }
 
+    public Bairro(long id, Cidade cidade) {
+        this.id = id;
+        this.cidade = cidade;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Cidade getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(Cidade cidade) {
+        this.cidade = cidade;
+    }
 }

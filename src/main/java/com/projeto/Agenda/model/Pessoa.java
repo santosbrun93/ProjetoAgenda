@@ -24,6 +24,7 @@ public abstract class Pessoa{
     private long RG;
 
     @Column (name = "DATA_NASCIMENTO")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date dataNascimento;
 
     public Pessoa(long id, String nome, String email, String CPF, long RG, Date dataNascimento) {
