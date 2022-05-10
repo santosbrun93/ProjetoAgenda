@@ -10,11 +10,6 @@ import javax.persistence.*;
 @Table(name = "PROFISSIONAIS")
 public class Profissional extends Pessoa implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name = "ID_PROFISSIONAIS")
-    private long id;
-
     @ManyToMany
     @JoinColumn(name = "PROCEDIMENTOS_PROFISSINAL") //NECESSÁRIO ENTENDER COMO FAZER N PRA N
     private List<Procedimento> procedimentosRealizados;
@@ -25,18 +20,7 @@ public class Profissional extends Pessoa implements Serializable {
 
     public Profissional(long id, String nome, String email, String CPF, long RG, Date dataNascimento, long id1, List<Procedimento> procedimentosRealizados) {
         super(id, nome, email, CPF, RG, dataNascimento);
-        this.id = id1;
         this.procedimentosRealizados = procedimentosRealizados;
-    }
-
-    @Override
-    public long getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(long id) {
-        this.id = id;
     }
 
     public List<Procedimento> getProcedimentosRealizados() {

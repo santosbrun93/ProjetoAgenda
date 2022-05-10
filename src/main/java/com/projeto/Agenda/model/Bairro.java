@@ -14,6 +14,9 @@ public class Bairro implements Serializable {
     @Column (name = "ID_BAIRRO")
     private long id;
 
+    @Column (name = "NOME")
+    private String nome;
+
     @OneToOne
     @JoinColumn (name = "CIDADE",
             referencedColumnName = "ID_CIDADE",
@@ -23,8 +26,9 @@ public class Bairro implements Serializable {
     public Bairro() {
     }
 
-    public Bairro(long id, Cidade cidade) {
+    public Bairro(long id, String nome, Cidade cidade) {
         this.id = id;
+        this.nome = nome;
         this.cidade = cidade;
     }
 
@@ -36,6 +40,14 @@ public class Bairro implements Serializable {
         this.id = id;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     public Cidade getCidade() {
         return cidade;
     }
@@ -43,4 +55,6 @@ public class Bairro implements Serializable {
     public void setCidade(Cidade cidade) {
         this.cidade = cidade;
     }
+
+
 }

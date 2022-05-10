@@ -16,6 +16,10 @@ public class Estado implements Serializable {
     @Column (name = "NOME")
     private String nome;
 
+    @Column (name = "UF")
+    private String uf;
+
+
     @OneToOne
     @JoinColumn (name = "PAIS",
             referencedColumnName = "ID_PAIS",
@@ -25,9 +29,19 @@ public class Estado implements Serializable {
     public Estado() {
     }
 
-    public Estado(long id, String nome) {
+    public Estado(long id, String nome, String uf, Pais pais) {
         this.id = id;
         this.nome = nome;
+        this.uf = uf;
+        this.pais = pais;
+    }
+
+    public String getUf() {
+        return uf;
+    }
+
+    public void setUf(String uf) {
+        this.uf = uf;
     }
 
     public long getId() {
@@ -45,4 +59,13 @@ public class Estado implements Serializable {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
+    public Pais getPais() {
+        return pais;
+    }
+
+    public void setPais(Pais pais) {
+        this.pais = pais;
+    }
+
 }

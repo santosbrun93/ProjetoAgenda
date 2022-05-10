@@ -1,6 +1,7 @@
 package com.projeto.Agenda.model;
 
-
+import java.time.LocalDateTime;
+import java.util.*;
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -13,10 +14,10 @@ public class Procedimento implements Serializable {
     @Column (name = "ID_PROCEDIMENTOS")
     private long id;
 
-    @Column (name = "NOME_PROCEDIMENTOS")
+    @Column (name = "NOME")
     private String nomeProcedimento;
 
-    @Column (name = "DESC_PROCEDIMENTOS")
+    @Column (name = "DESCRICAO")
     private String descricaoProcedimento;
 
     @Column (name = "VALOR_COBRANCA")
@@ -28,16 +29,25 @@ public class Procedimento implements Serializable {
     @Column (name = "VALOR_LUCRO")
     private double valorLucro;
 
+    @Column (name = "DURACAO")
+    @Temporal(TemporalType.TIMESTAMP)
+    private LocalDateTime duracao;
+
+
     public Procedimento() {
     }
 
-    public Procedimento(long id, String nomeProcedimento, String descricaoProcedimento, double valorCobranca, double valorMaterial, double valorLucro) {
+
+    public Procedimento(long id, String nomeProcedimento, String descricaoProcedimento,
+                        double valorCobranca, double valorMaterial, double valorLucro,
+                        LocalDateTime duracao) {
         this.id = id;
         this.nomeProcedimento = nomeProcedimento;
         this.descricaoProcedimento = descricaoProcedimento;
         this.valorCobranca = valorCobranca;
         this.valorMaterial = valorMaterial;
-        this.valorLucro = getValorLucro();
+        this.valorLucro = valorLucro;
+        this.duracao = duracao;
     }
 
     public long getId() {
@@ -88,5 +98,11 @@ public class Procedimento implements Serializable {
         return valorCobranca - valorMaterial;
     }
 
+    public LocalDateTime getDuracao() {
+        return duracao;
+    }
 
+    public void setDuracao(LocalDateTime duracao) {
+        this.duracao = duracao;
+    }
 }

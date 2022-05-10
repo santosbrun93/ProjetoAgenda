@@ -13,6 +13,9 @@ public class Espaco implements Serializable {
     @Column (name = "ID_ESPACOS")
     private long id;
 
+    @Column (name = "NOME")
+    private String nome;
+
     @OneToOne
     @JoinColumn(name = "id_endereco")
     private Endereco endereco;

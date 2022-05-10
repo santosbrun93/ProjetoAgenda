@@ -3,6 +3,7 @@ package com.projeto.Agenda.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 
 @Entity
 @Table(name = "SESSOES")
@@ -21,9 +22,13 @@ public class Sessao implements Serializable{
     @JoinColumn(name = "PROFISSIONAL_ID")
     private Profissional profissional;
 
-    @Column (name = "HORARIO")
+    @Column (name = "HORARIO_INICIAL")
     @Temporal(TemporalType.TIMESTAMP)
-    private LocalDateTime horario;
+    private LocalDateTime horarioInicial;
+
+    @Column (name = "HORARIO_FINAL")
+    @Temporal(TemporalType.TIMESTAMP)
+    private LocalDateTime horarioFinal;
 
     @ManyToOne
     @JoinColumn(name = "ESPACO_ID")
@@ -36,11 +41,14 @@ public class Sessao implements Serializable{
     public Sessao() {
     }
 
-    public Sessao(long id, Cliente cliente, Profissional profissional, LocalDateTime horario, Espaco espaco, Procedimento procedimento) {
+    public Sessao(long id, Cliente cliente, Profissional profissional,
+                  LocalDateTime horarioInicial, LocalDateTime horarioFinal,
+                  Espaco espaco, Procedimento procedimento) {
         this.id = id;
         this.cliente = cliente;
         this.profissional = profissional;
-        this.horario = horario;
+        this.horarioInicial = horarioInicial;
+        this.horarioFinal = horarioFinal;
         this.espaco = espaco;
         this.procedimento = procedimento;
     }
@@ -69,12 +77,21 @@ public class Sessao implements Serializable{
         this.profissional = profissional;
     }
 
-    public LocalDateTime getHorario() {
-        return horario;
+    public LocalDateTime getHorarioInicial() {
+        return horarioInicial;
     }
 
-    public void setHorario(LocalDateTime horario) {
-        this.horario = horario;
+    public void setHorarioInicial(LocalDateTime horario) {
+        this.horarioInicial = horario;
+    }
+
+    public LocalDateTime getHorarioFinal(Procedimento procedimento)
+    {
+        return horarioFinal;
+    }
+
+    public void setHorarioFinal(LocalDateTime horario) {
+        this.horarioFinal = horario;
     }
 
     public Espaco getEspaco() {
@@ -85,7 +102,7 @@ public class Sessao implements Serializable{
         this.espaco = espaco;
     }
 
-    public Procedimento getProcedimento() {
+    public Procedimento getProcedimento () {
         return procedimento;
     }
 
