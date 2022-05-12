@@ -34,14 +34,12 @@ public class HibernateUtil {
         configuration.addAnnotatedClass(Procedimento.class);
         configuration.addAnnotatedClass(Sessao.class);
         configuration.addAnnotatedClass(Espaco.class);
-
         ServiceRegistry srvcReg = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
         sessionFactory = configuration.buildSessionFactory(srvcReg);
     }
 
     public static Session getSession() throws HibernateException {
-
-        Session retSession=null;
+        Session retSession = null;
         try {
             retSession = sessionFactory.openSession();
         }catch(HibernateException t){
@@ -50,7 +48,6 @@ public class HibernateUtil {
         if(retSession == null) {
             System.err.println("session is discovered null");
         }
-
         return retSession;
     }
 }

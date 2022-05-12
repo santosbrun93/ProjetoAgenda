@@ -1,6 +1,7 @@
 package com.projeto.Agenda.model;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 import javax.persistence.*;
 
@@ -21,13 +22,13 @@ public abstract class Pessoa{
     private String CPF;
 
     @Column (name = "RG",length = 10)
-    private long RG;
+    private String RG;
 
     @Column (name = "DATA_NASCIMENTO")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date dataNascimento;
+    private LocalDate dataNascimento;
 
-    public Pessoa(long id, String nome, String email, String CPF, long RG, Date dataNascimento) {
+    public Pessoa(long id, String nome, String email, String CPF, String RG, LocalDate dataNascimento) {
         this.id = id;
         this.nome = nome;
         this.email = email;
@@ -71,19 +72,19 @@ public abstract class Pessoa{
         this.CPF = CPF;
     }
 
-    public long getRG() {
+    public String getRG() {
         return RG;
     }
 
-    public void setRG(long RG) {
+    public void setRG(String RG) {
         this.RG = RG;
     }
 
-    public Date getDataNascimento() {
+    public LocalDate getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 }

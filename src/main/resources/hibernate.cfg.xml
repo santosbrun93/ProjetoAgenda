@@ -7,11 +7,12 @@
         <property name="hibernate.connection.driver_class">com.mariadb.jdbc.Driver</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">senha</property>
-        <property name="hibernate.connection.url">jdbc:mariadb://localhost/projeto_agenda</property>
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/projeto_agenda</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="hibernate.show_sql">true</property>
         <!--       <property name="hibernate.format_sql">true</property>-->
         <property name="hbm2ddl.auto">update</property>
+        <mapping class="com.projeto.Agenda.model.Cliente" />
     </session-factory>
 
 </hibernate-configuration>

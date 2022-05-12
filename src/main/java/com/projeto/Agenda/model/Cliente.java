@@ -2,6 +2,7 @@ package com.projeto.Agenda.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 
@@ -18,11 +19,11 @@ public class Cliente extends Pessoa implements Serializable {
     public Cliente() {
     }
 
-    public Cliente(long id, String nome, String email, String CPF, long RG, Date dataNascimento) {
+    public Cliente(long id, String nome, String email, String CPF, String RG, LocalDate dataNascimento) {
         super(id, nome, email, CPF, RG, dataNascimento);
     }
 
-    public Cliente(long id, String nome, String email, String CPF, long RG, Date dataNascimento, formaPagamento formaCliente, boolean clienteAntigo) {
+    public Cliente(long id, String nome, String email, String CPF, String RG, LocalDate dataNascimento, formaPagamento formaCliente, boolean clienteAntigo) {
         super(id, nome, email, CPF, RG, dataNascimento);
         this.formaCliente = formaCliente;
         this.clienteAntigo = clienteAntigo;
